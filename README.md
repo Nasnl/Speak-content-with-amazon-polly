@@ -1,9 +1,9 @@
-# Amazon Polly Sample
-This app allows you to easily convert any publicly available RSS content into audio Podcasts, so you can listen to your favorite blogs on mobile devices instead of reading them.
+# Speak-content-with-amazon-polly
+This app allows you to convert any content, from a text file to a publicly available RSS content into audio files, so you can listen to them on your mobile device instead of reading them.
 
 # Requirements
-You will need an AWS account and an RSS feed.
-Some technical experience is required to setup your own instance of the app, but you don't have to write any code. Once setup, it can be used by anyone using a standard Podcast player.
+- AWS account
+- text file or RSS feed
 
 # How does it work?
 1. Amazon CloudWatch periodically triggers a function hosted using AWS Lambda.
