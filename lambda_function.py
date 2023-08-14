@@ -26,6 +26,32 @@ TASKS = 100
 REQUEST_LIMIT = 1200
 
 
+    # Specify the buckets
+    source_bucket = 'audiofiles-tts-incomingtexts-long'
+    destination_bucket = 'audiofiles-tts'
+
+    for record in event['Records']:
+        bucket_name = record['s3']['bucket']['name']
+        object_key = record['s3']['object']['key']
+        
+        if bucket_name == source_bucket:
+            response = s3.get_object(Bucket=bucket_name, Key=object_key)
+            text_content = response['Body'].read().decode('utf-8')
+        
+            # Start the speech synthesis task 
+            synthesis_task = polly.start_speech_synthesis_task(
+                OutputFormat='mp3',
+                OutputS3BucketName=destination_bucket,
+                OutputS3KeyPrefix='longtxts/',
+                Text=text_content,
+                Engine = 'neural',
+                VoiceId='Emma'
+
+            )
+
+            task_id = synthesis_task['SynthesisTask']['TaskId']
+
+
 def split_content_by_dot(soup, max_len):
     """
     split HTML soup into parts not bigger than max_len may break prosody where
