@@ -1,4 +1,4 @@
-region: us-east-1
+centralregion: eu-central-1
 
 function_name: lambda_function
 handler: lambda_function.lambda_handler
