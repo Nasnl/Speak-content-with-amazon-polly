@@ -33,8 +33,8 @@ This app allows you to convert any content, from a text file to a publicly avail
 
 ## Lambda
 1. Create a new Lambda function.
-2. Choose "Python 2.7" as runtime and "hello-world-python" as a blueprint. 
-3. Skip triggerts (just click "Next"); we will get to that later.
+2. Choose "Python 3.11" as runtime and "hello-world-python" as a blueprint. 
+3. Skip triggers (just click "Next").
 4. Choose an arbitrary name for your function, change "Code entry type" to "Upload a .ZIP file", and upload dist/package.zip from this repository.
 5. Choose "Create a custom role" in the "Role" field, which will open a new tab.
     * In the newly opened tab, change "IAM Role" to "Create a new IAM Role", and choose an arbitrary name for the role.
